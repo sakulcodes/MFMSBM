@@ -1,17 +1,17 @@
-## Function for log-likelihood related to Jth observation
+#' Log-likelihood function related to Jth observation
+#'
+#' @param clusterassign n by 1 vector of cluster configuration
+#' @param param k by k probability matrix
+#' @param data n by n adjacency matrix
+#' @param J observation index
+#' @param n number of observations
+#'
+#' @return log-likelihood related to the jth observation
+#' @export
+#'
+#' @examples
 loglike <- function(clusterassign,param,data,J,n) #here J means Jth observation
 {
-  ################################################################
-
-  ## Input: clusterassign = clustering configuration, a n by 1 vector ##
-  ##        param = probability matrix, a k by k matrix ##
-  ##        data = the adjacency matrix, a n by n matrix ##
-  ##        J = observation index ##
-  ##        n = number of observations ##
-
-  ## Output: log-likelihood related to Jth observation ##
-
-  #################################################################
   clustersize = max(clusterassign)
   param = as.matrix(param)
 
