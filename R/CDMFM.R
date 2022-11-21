@@ -1,3 +1,18 @@
+#' Collapsed sampler for MFM-SBM
+#'
+#' @param data
+#' @param data1
+#' @param niterations
+#' @param beta.a
+#' @param beta.b
+#' @param GAMMA
+#' @param LAMBDA
+#' @param initNClusters
+#'
+#' @return
+#' @export
+#'
+#' @examples
 CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, initNClusters)
 {
   ## Model: A_{ij}|z,Q \sim Ber(Q_{z_i,z_j}) ##
