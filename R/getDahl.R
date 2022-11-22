@@ -1,15 +1,15 @@
+#' Dahl's method to summarize the samples from the MCMC
+#'
+#' @param MFMfit the result from CDMFM_new function
+#' @param burn the number of burn-in interations
+#'
+#' @return zout = estimated clustering configuration, a n by 1 vector
+#' @return Qout = estimated probability matrix, a k by k matrix
+#' @export
+#'
+#' @examples
 getDahl <- function(MFMfit, burn)
 {
-  ################################################################
-
-  ## Input: MFMfit = the result from CDMFM_new ##
-  ##        burn = the number of burn-in iterations ##
-
-  ## Output:
-  ##         zout = estimated clustering configuration, a n by 1 vector##
-  ##         Qout = estimated probability matrix, a k by k matrix ##
-
-  #################################################################
   iters <- MFMfit$Iterates[-(1:burn)]
   n <- length(iters[[1]][[1]])
   niters <- length(iters)
