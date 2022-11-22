@@ -1,42 +1,21 @@
 #' Collapsed sampler for MFM-SBM
 #'
-#' @param data
-#' @param data1
-#' @param niterations
-#' @param beta.a
-#' @param beta.b
-#' @param GAMMA
-#' @param LAMBDA
-#' @param initNClusters
 #'
-#' @return
+#' @param datat a n by n adjancey matrix
+#' @param data1 a n by n upper triangle for the adjacency matrix
+#' @param niterations the total number of iterations in MFMSBM
+#' @param beta.a hyperparameters for the prior on elements in Q matrix in Beta distribution
+#' @param beta.b hyperparameters for the prior on elements in Q matrix in Beta distribution
+#' @param GAMMA the parameter in Dirichlet distribution that controls the relative size of clusters
+#' @param LAMBDA the parameter for Poisson distrition
+#' @param initNClusters the initial number of clusters
+#'
+#' @return zout = clustering configuration, a n by 1 vector
+#' @return Qout = probability matrix, a k by k matrix
 #' @export
 #'
 #' @examples
+#'
 CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, initNClusters)
 {
-  ## Model: A_{ij}|z,Q \sim Ber(Q_{z_i,z_j}) ##
-  ##        Q_{rs} \sim Beta(beta.a,beta.b), r,s = 1,...,k ##
-  ##        P(z_i = j) = \pi_j, j = 1,...,k ##
-  ##        \pi \sim Dirichlet_k(GAMMA,...,GAMMA) ##
-  ##        k-1 \sim possion(1) ##
-
-
-
-  ################################################################
-
-  ## Input: data = the adjacency matrix, a n by n matrix ##
-  ##        data1 = the upper traiangle for the adjacency matrix, a n by n matrix ##
-  ##        niterations = the total number of iterations in MFM-SBM ##
-  ##        beta.a, beta.b = hyperparameters for the prior on elements in Q matrix in Beta distribution ##
-  ##        GAMMA = the parameter in Dirichlet distribution that controls the relative size of clusters ##
-  ##        LAMBDA = the parameter for Poisson distrition ##
-  ##        initNClusters = the initial number of clusters ##
-
-
-  ## Output:
-  ##         zout = clustering configuration, a n by 1 vector##
-  ##         Qout = probability matrix, a k by k matrix ##
-
-  #################################################################
 }
