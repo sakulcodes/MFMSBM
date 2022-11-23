@@ -10,19 +10,19 @@
 #' @examples
 getDahl <- function(MFMfit, burn)
 {
-  iters <- MFMfit$Iterates[-(1:burn)]
-  n <- length(iters[[1]][[1]])
+  iters <- MFMfit$Iterates[-(1:burn)] #defining the iters value
+  n <- length(iters[[1]][[1]]) #defining the number of iterations
   niters <- length(iters)
   membershipMatrices <- lapply(iters, function(x){
     clusterAssign <- x[[1]]
     outer(clusterAssign, clusterAssign, FUN = "==")
   })
-  membershipAverage <- Reduce("+", membershipMatrices)/niters
+  membershipAverage <- Reduce("+", membershipMatrices)/niters #calculating the average here
   SqError <- sapply(membershipMatrices, function(x, av) sum((x - av)^2),
                     av = membershipAverage)
-  DahlIndex <- which.min(SqError)
+  DahlIndex <- which.min(SqError) #getting the DahlIndex
   DahlAns <- iters[[DahlIndex]]
   attr(DahlAns, "iterIndex") <- burn + DahlIndex
   attr(DahlAns, "burnin") <- burn
-  DahlAns
+  DahlAns #the result(i.e the zout and qout)
 }

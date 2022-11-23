@@ -12,14 +12,13 @@
 #' @examples
 logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth observation
 {
-  ################################################################
-
-  ## Input: clusterassign = clustering configuration, a n by 1 vector ##
-  ##        data = the adjacency matrix, a n by n matrix ##
-  ##        J = observation index ##
-  ##        n = number of observations ##
-  ##        beta.a, beta.b = hyperparameters for the prior on elements in Q matrix in Beta distribution ##
-
-  ## Output: m(A_j) in Algotithm 1 (collapsed sampler for MFM-SBM) ##
-
+  clustersize = max(clusterassign)-1
+  result = NULL
+  for (ii in 1:clustersize)
+  {
+    sumA =  sum(data[J,which(clusterassign==ii)[which(clusterassign==ii)>J]]) + sum(data[which(clusterassign==ii)[which(clusterassign==ii)<J],J])
+    S = length(which(clusterassign==ii)[which(clusterassign==ii)>J]) + length(which(clusterassign==ii)[which(clusterassign==ii)<J])
+    result[ii] = lbeta(sumA+beta.a,S-sumA+beta.b)-lbeta(beta.a,beta.b)
+  }
+  sum(result)
 }
