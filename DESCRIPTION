@@ -1,10 +1,10 @@
 Package: MFMSBM
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Adapting mixture of finite mixture(MFM) to the stochastic block model(SBM)
+Version: 1.0.0.9000
 Authors@R: 
    c(person("Sakul", "Mahat", email = "smahat@tamu.edu", role = c("aut", "cre")),
    person("Debdeep", "Pati", email = "debdeep@stat.tamu.edu", role =  "aut"))
-Description: What the package does (one paragraph).
+Description: This R Package proposes a coherent probabilistic framework for simultaneous estimation of the number of communities and the community structure, adapting recently developed Bayesian nonparametric techniques to network models. There are four functions implemented in this R Package: CDMFM_new, loglike, logmargs, and getDahl. For each of the implemented functions, their description and intended use are provided.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
