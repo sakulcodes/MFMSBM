@@ -12,13 +12,13 @@
 #' @examples
 logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth observation
 {
-  clustersize = max(clusterassign)-1
-  result = NULL
+  clustersize = max(clusterassign)-1 #defining the clusterzize
+  result = NULL #initializing the result as null for now
   for (ii in 1:clustersize)
   {
     sumA =  sum(data[J,which(clusterassign==ii)[which(clusterassign==ii)>J]]) + sum(data[which(clusterassign==ii)[which(clusterassign==ii)<J],J])
     S = length(which(clusterassign==ii)[which(clusterassign==ii)>J]) + length(which(clusterassign==ii)[which(clusterassign==ii)<J])
-    result[ii] = lbeta(sumA+beta.a,S-sumA+beta.b)-lbeta(beta.a,beta.b)
+    result[ii] = lbeta(sumA+beta.a,S-sumA+beta.b)-lbeta(beta.a,beta.b) #adding to the result matrix with each iteration
   }
-  sum(result)
+  sum(result) #summing over the result matrix (this is our collapsed sampler for MFMSBM)
 }
