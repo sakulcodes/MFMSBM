@@ -16,6 +16,9 @@
 #'
 #' @examples
 #'
+source("logmargs.R") #sourcing the logmargs function
+source("loglike.R") #sourcing the loglike function
+source("getDahl.R") #
 CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, initNClusters)
 {
   n = dim(data)[1]
