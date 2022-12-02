@@ -14,11 +14,12 @@ library(MFMSBM)
 ```
 to get access to the functions available.
 
-#Contributing
+# Contributing
 If you have an idea to improve MFMSBM, considering forking the repo and creating a pull request or opening an issue.
 
-#Example for dolphin.R data
+# Example for dolphin.R data
 ``` r
+## Installing the MFMSBM Package
 devtools::install_github("sakulcodes/MFMSBM")
 library(MFMSBM)
 
@@ -47,13 +48,13 @@ diag(A) = 0 ## making it without-selfloop networkk
 set.seed(1)
 fit1 = CDMFM_new(data = A, data1 = AAA, niterations = 100, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 9)
 fit1$Iterates[[i]] #is a list of length two, which denotes the ith sample in MCMC output. 
-fit1$Iterates[[i]][[1]] #denotes the clustering configuration z in ith iteration.
-fit1$Iterates[[i]][[2]] #denotes the Q matrix in ith iteration.
+fit1$Iterates[[i]][[1]] ##denotes the clustering configuration z in ith iteration.
+fit1$Iterates[[i]][[2]] ##denotes the Q matrix in ith iteration.
 
 ## estimated configuration using Dahl's method, choosing first 50 iterations in MCMC as burn-in
 result1 = getDahl(fit1, burn = 50)
-result1[[1]] #denotes the estimated clustering configuration.
-result1[[2]] #denotes the estimated Q matrix.
+result1[[1]] ##denotes the estimated clustering configuration.
+result1[[2]] ##denotes the estimated Q matrix.
 
 ## dolphin data example
 ## loading the data
@@ -65,6 +66,6 @@ fit_dol = CDMFM_new(data = A, data1 = AAA, niterations = 300, beta.a = 2, beta.b
 result_dol = getDahl(fit_dol, burn = 100)
 ```
 
-#References
+# References
 Geng, J., Bhattacharya, A. and Pati, D., 2019. Probabilistic community detection with unknown number of communities. Journal of the American Statistical Association, 114(526), pp.893-905.
 
