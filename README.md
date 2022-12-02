@@ -4,6 +4,8 @@
 # MFMSBM Package
 
 <!-- badges: start -->
+
+[![Tests](https://github.com/sakulcodes/MFMSBM/actions/workflows/test-coverage.yaml/badge.svg)](https://par.nsf.gov/servlets/purl/10177926)
 <!-- badges: end -->
 
 # Adapting mixture of finite mixture (MFM) to the stochastic block model (SBM)
@@ -19,14 +21,14 @@ connectivity pattern. This R Package proposes a coherent probabilistic
 framework for simultaneous estimation of the number of communities and
 the community structure, adapting recently developed Bayesian
 nonparametric techniques to network models. There are four functions
-implemented in this R Package. Firstly, the CDMFM_new function computes
-the collapsed sampler for mixture of finite mixture to the stochastic
-block model (random graph model wih planted clusters) by initialization
-of clustering configuration and Gibb’s sampling. Secondly, the loglike
-function computes the log-likelihood related to the Jth observation.
-Furthermore, the logmargs function gets the collapsed sampler for MFMSBM
-called m(A_j). Lastly, the getDahl function summarizes the sample from
-the MCMC (Markov chain Monte Carlo).
+implemented in this R Package. Firstly, the `CDMFM_new` function
+computes the collapsed sampler for mixture of finite mixture to the
+stochastic block model (random graph model wih planted clusters) by
+initialization of clustering configuration and Gibb’s sampling.
+Secondly, the `loglike` function computes the log-likelihood related to
+the Jth observation. Furthermore, the `logmargs` function gets the
+collapsed sampler for MFMSBM called m(A_j). Lastly, the `getDahl`
+function summarizes the sample from the MCMC (Markov chain Monte Carlo).
 
 # Installation Instructions
 
