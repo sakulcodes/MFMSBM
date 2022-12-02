@@ -5,7 +5,8 @@
 
 <!-- badges: start -->
 
-[![Tests](https://github.com/sakulcodes/MFMSBM/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/sakulcodes/MFMSBM/blob/main/.github/workflows/test-coverage.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/sakulcodes/MFMSBM/branch/master/graph/badge.svg)](https://app.codecov.io/gh/sakulcodes/MFMSBM?branch=master)
 [![R-CMD-check](https://github.com/sakulcodes/MFMSBM/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sakulcodes/MFMSBM/blob/main/.github/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
