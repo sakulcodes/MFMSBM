@@ -12,6 +12,7 @@
 #' @export
 #'
 #' @examples
+#'
 
 logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth observation
 {
