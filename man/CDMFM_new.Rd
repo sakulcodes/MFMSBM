@@ -40,3 +40,11 @@ Qout = probability matrix, a k by k matrix
 \description{
 CDMFM_new function returns a list with zout (clustering configuration, n by 1 vector), and Qout (probability matrix, k by k)
 }
+\examples{
+
+n <- 10
+A <- matrix(0,n,n)
+AAA <- matrix(0,n,n)
+CDMFM_new(data = A, data1 = AAA, niterations = 1, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 9)
+
+}

@@ -23,3 +23,7 @@ m(Aj) i.e the collapsed sampler for MFM-SBM
 \description{
 logmargs function takes in five parameters: clusterassign, data, J, beta.a, beta.b, and returns the collapsed sampler for MFMSBM(i.e m(Aj))
 }
+\examples{
+logmargs(c(2,2,3),matrix(data =1:9,nrow=3, ncol = 3),1,2,3)
+
+}

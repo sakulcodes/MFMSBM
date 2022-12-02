@@ -19,3 +19,12 @@ Qout = estimated probability matrix, a k by k matrix
 \description{
 getDahl function takes in two parameters: MFMfit, burn, and returns a list with zout(estimated clustering configuration, n by 1 vector), and Qout(estimated probability matrix, k by k)
 }
+\examples{
+n <- 10
+A <- matrix(0,n,n)
+AAA <- matrix(0,n,n)
+fit1 <- CDMFM_new(data = A, data1 = AAA, niterations = 2, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)
+getDahl(fit1,1)
+
+
+}

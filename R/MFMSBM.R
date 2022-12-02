@@ -14,6 +14,7 @@
 #' @export
 #'
 #' @examples
+#' logmargs(c(2,2,3),matrix(data =1:9,nrow=3, ncol = 3),1,2,3)
 #'
 
 logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth observation
@@ -44,6 +45,8 @@ logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth obser
 #' @export
 #'
 #' @examples
+#' loglike(c(5,5,5),matrix(data=1:25,nrow=5,ncol=5),matrix(data=1:9,nrow=3,ncol=3),2,3)
+#'
 
 loglike <- function(clusterassign,param,data,J,n) #here J means Jth observation
 {
@@ -101,6 +104,11 @@ loglike <- function(clusterassign,param,data,J,n) #here J means Jth observation
 #' @export
 #'
 #' @examples
+#'
+#' n <- 10
+#' A <- matrix(0,n,n)
+#' AAA <- matrix(0,n,n)
+#' CDMFM_new(data = A, data1 = AAA, niterations = 1, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 9)
 #'
 
 CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, initNClusters)
@@ -242,6 +250,12 @@ CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, i
 #' @export
 #'
 #' @examples
+#' n <- 10
+#' A <- matrix(0,n,n)
+#' AAA <- matrix(0,n,n)
+#' fit1 <- CDMFM_new(data = A, data1 = AAA, niterations = 2, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)
+#' getDahl(fit1,1)
+#'
 #'
 
 getDahl <- function(MFMfit, burn)

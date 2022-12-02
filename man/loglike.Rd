@@ -23,3 +23,7 @@ log-likelihood related to the jth observation
 \description{
 loglike function takes in five parameters: clusterassign, param, data, J, n, and returns log-likelihood related to the jth observation.
 }
+\examples{
+loglike(c(5,5,5),matrix(data=1:25,nrow=5,ncol=5),matrix(data=1:9,nrow=3,ncol=3),2,3)
+
+}
