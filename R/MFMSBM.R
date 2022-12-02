@@ -1,3 +1,83 @@
+
+#################################LOGMARGS FUNCTION################################################################################
+#' Function for getting the collapsed sampler for MFM-SBM m(Aj)
+#'
+#' @param clusterassign n by 1 vector of clustering configuration
+#' @param data n by n adjacency  matrix
+#' @param J observation index
+#' @param beta.a  hyperparameters for the prior on elements in Q matrix in Beta distribution
+#' @param beta.b hyperparameters for the prior on elements in Q matrix in Beta distribution
+#'
+#' @return m(Aj) i.e the collapsed sampler for MFM-SBM
+#' @export
+#'
+#' @examples
+
+logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth observation
+{
+  clustersize = max(clusterassign)-1 #defining the clusterzize
+  result = NULL #initializing the result as null for now
+  for (ii in 1:clustersize)
+  {
+    sumA =  sum(data[J,which(clusterassign==ii)[which(clusterassign==ii)>J]]) + sum(data[which(clusterassign==ii)[which(clusterassign==ii)<J],J])
+    S = length(which(clusterassign==ii)[which(clusterassign==ii)>J]) + length(which(clusterassign==ii)[which(clusterassign==ii)<J])
+    result[ii] = lbeta(sumA+beta.a,S-sumA+beta.b)-lbeta(beta.a,beta.b) #adding to the result matrix with each iteration
+  }
+  sum(result) #summing over the result matrix (this is our collapsed sampler for MFMSBM)
+}
+
+#################################LOGLIKE FUNCTION################################################################################
+#' Log-likelihood function related to Jth observation
+#'
+#' @param clusterassign n by 1 vector of cluster configuration
+#' @param param k by k probability matrix
+#' @param data n by n adjacency matrix
+#' @param J observation index
+#' @param n number of observations
+#'
+#' @return log-likelihood related to the jth observation
+#' @export
+#'
+#' @examples
+
+loglike <- function(clusterassign,param,data,J,n) #here J means Jth observation
+{
+  #initializing clustersize and param
+  clustersize = max(clusterassign)
+  param = as.matrix(param)
+
+  #running loops to implement the loglikelihood formula
+  if (J==1) {result2 = 0
+  for (ii in c((J+1):n))
+  {
+    result2 = result2 + data[J,ii]*log(param[clusterassign[J],clusterassign[ii]])+(1-data[J,ii])*log(1-param[clusterassign[J],clusterassign[ii]])
+  }
+  output = sum(result2)} else if (J==n){
+    result = 0 #initializing result as zero
+    for (ii in c(1:(J-1)))
+    {
+      result = result + data[ii,J]*log(param[clusterassign[ii],clusterassign[J]])+(1-data[ii,J])*log(1-param[clusterassign[ii],clusterassign[J]])
+    }
+    output = sum(result)
+  } else {
+    result = 0 #initializing result as zero if the above for loop is not true
+    for (ii in c(1:(J-1)))
+    {
+      result = result + data[ii,J]*log(param[clusterassign[ii],clusterassign[J]])+(1-data[ii,J])*log(1-param[clusterassign[ii],clusterassign[J]])
+    }
+
+    result2 = 0 ##initializing result as zero if the above for loop is not true
+    for (ii in c((J+1):n))
+
+    {
+      result2 = result2 + data[J,ii]*log(param[clusterassign[J],clusterassign[ii]])+(1-data[J,ii])*log(1-param[clusterassign[J],clusterassign[ii]])
+    }
+    output = sum(result)+sum(result2)}
+  output #the loglikelihood related to the jth observation
+}
+
+#################################CDMFM_new################################################################################
+
 #' Collapsed sampler for MFM-SBM
 #'
 #'
@@ -16,9 +96,7 @@
 #'
 #' @examples
 #'
-source("logmargs.R") #sourcing the logmargs function
-source("loglike.R") #sourcing the loglike function
-source("getDahl.R") #
+
 CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, initNClusters)
 {
   n = dim(data)[1]
@@ -143,5 +221,36 @@ CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, i
   }# for loop over iterations
 
   list(Iterates = History)
+}
 
+#################################GET_DAHL_FUNCTION################################################################################
+#' Dahl's method to summarize the samples from the MCMC
+#'
+#' @param MFMfit the result from CDMFM_new function
+#' @param burn the number of burn-in interations
+#'
+#' @return zout = estimated clustering configuration, a n by 1 vector
+#' @return Qout = estimated probability matrix, a k by k matrix
+#' @export
+#'
+#' @examples
+#'
+
+getDahl <- function(MFMfit, burn)
+{
+  iters <- MFMfit$Iterates[-(1:burn)] #defining the iters value
+  n <- length(iters[[1]][[1]]) #defining the number of iterations
+  niters <- length(iters)
+  membershipMatrices <- lapply(iters, function(x){
+    clusterAssign <- x[[1]]
+    outer(clusterAssign, clusterAssign, FUN = "==")
+  })
+  membershipAverage <- Reduce("+", membershipMatrices)/niters #calculating the average here
+  SqError <- sapply(membershipMatrices, function(x, av) sum((x - av)^2),
+                    av = membershipAverage)
+  DahlIndex <- which.min(SqError) #getting the DahlIndex
+  DahlAns <- iters[[DahlIndex]]
+  attr(DahlAns, "iterIndex") <- burn + DahlIndex
+  attr(DahlAns, "burnin") <- burn
+  DahlAns #the result(i.e the zout and qout)
 }

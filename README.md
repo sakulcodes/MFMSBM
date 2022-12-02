@@ -15,7 +15,10 @@ library(MFMSBM)
 to get access to the functions available.
 
 # Things left to do
-1. Complete the implementation of CDMFM.R function 
+1. Complete the implementation of CDMFM.R function
 2. Integrate C++ into some of the functions like CDMFM_new and getDahl.R to make the computing faster.
-3. Provide an example: the result of MFMSBM in dolphin social network (this will replicate the results in the paper). 
+3. Provide an example: the result of MFMSBM in dolphin social network (this will replicate the results in the paper).
 4. Do automatic testing for different test cases.
+
+#Example for dolphin.R data
+
