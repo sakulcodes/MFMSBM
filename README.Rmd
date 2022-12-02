@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 # MFMSBM Package
 <!-- badges: start -->
-[![Tests](https://github.com/sakulcodes/MFMSBM/actions/workflows/test-coverage.yaml/badge.svg)](https://par.nsf.gov/servlets/purl/10177926)
+[![Tests](https://github.com/sakulcodes/MFMSBM/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/sakulcodes/MFMSBM/blob/main/.github/workflows/test-coverage.yaml)
 <!-- badges: end -->
 
 # Adapting mixture of finite mixture (MFM) to the stochastic block model (SBM) 
