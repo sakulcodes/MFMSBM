@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![Tests](https://github.com/sakulcodes/MFMSBM/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/sakulcodes/MFMSBM/blob/main/.github/workflows/test-coverage.yaml)
+[![R-CMD-check](https://github.com/sakulcodes/MFMSBM/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sakulcodes/MFMSBM/blob/main/.github/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # Adapting mixture of finite mixture (MFM) to the stochastic block model (SBM)
