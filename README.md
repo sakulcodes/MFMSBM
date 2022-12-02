@@ -17,7 +17,7 @@ to get access to the functions available.
 # Contributing
 If you have an idea to improve MFMSBM, considering forking the repo and creating a pull request or opening an issue.
 
-# Example for dolphin.R data
+# Example for Dolphin Data
 ``` r
 ## Installing the MFMSBM Package
 devtools::install_github("sakulcodes/MFMSBM")
