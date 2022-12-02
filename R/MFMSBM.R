@@ -2,6 +2,8 @@
 #################################LOGMARGS FUNCTION################################################################################
 #' Function for getting the collapsed sampler for MFM-SBM m(Aj)
 #'
+#' logmargs function takes in five parameters: clusterassign, data, J, beta.a, beta.b, and returns the collapsed sampler for MFMSBM(i.e m(Aj))
+#'
 #' @param clusterassign n by 1 vector of clustering configuration
 #' @param data n by n adjacency  matrix
 #' @param J observation index
@@ -29,6 +31,8 @@ logmargs <- function(clusterassign,data,J,beta.a,beta.b) #here J means Jth obser
 
 #################################LOGLIKE FUNCTION################################################################################
 #' Log-likelihood function related to Jth observation
+#'
+#' loglike function takes in five parameters: clusterassign, param, data, J, n, and returns log-likelihood related to the jth observation.
 #'
 #' @param clusterassign n by 1 vector of cluster configuration
 #' @param param k by k probability matrix
@@ -81,8 +85,9 @@ loglike <- function(clusterassign,param,data,J,n) #here J means Jth observation
 
 #' Collapsed sampler for MFM-SBM
 #'
+#' CDMFM_new function returns a list with zout (clustering configuration, n by 1 vector), and Qout (probability matrix, k by k)
 #'
-#' @param datat a n by n adjancey matrix
+#' @param data a n by n adjancey matrix
 #' @param data1 a n by n upper triangle for the adjacency matrix
 #' @param niterations the total number of iterations in MFMSBM
 #' @param beta.a hyperparameters for the prior on elements in Q matrix in Beta distribution
@@ -226,6 +231,8 @@ CDMFM_new <- function(data, data1, niterations, beta.a, beta.b, GAMMA, LAMBDA, i
 
 #################################GET_DAHL_FUNCTION################################################################################
 #' Dahl's method to summarize the samples from the MCMC
+#'
+#' getDahl function takes in two parameters: MFMfit, burn, and returns a list with zout(estimated clustering configuration, n by 1 vector), and Qout(estimated probability matrix, k by k)
 #'
 #' @param MFMfit the result from CDMFM_new function
 #' @param burn the number of burn-in interations

@@ -21,5 +21,5 @@ loglike(clusterassign, param, data, J, n)
 log-likelihood related to the jth observation
 }
 \description{
-Log-likelihood function related to Jth observation
+loglike function takes in five parameters: clusterassign, param, data, J, n, and returns log-likelihood related to the jth observation.
 }

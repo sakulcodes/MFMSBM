@@ -17,5 +17,5 @@ zout = estimated clustering configuration, a n by 1 vector
 Qout = estimated probability matrix, a k by k matrix
 }
 \description{
-Dahl's method to summarize the samples from the MCMC
+getDahl function takes in two parameters: MFMfit, burn, and returns a list with zout(estimated clustering configuration, n by 1 vector), and Qout(estimated probability matrix, k by k)
 }

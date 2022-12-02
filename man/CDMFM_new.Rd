@@ -16,6 +16,8 @@ CDMFM_new(
 )
 }
 \arguments{
+\item{data}{a n by n adjancey matrix}
+
 \item{data1}{a n by n upper triangle for the adjacency matrix}
 
 \item{niterations}{the total number of iterations in MFMSBM}
@@ -29,8 +31,6 @@ CDMFM_new(
 \item{LAMBDA}{the parameter for Poisson distrition}
 
 \item{initNClusters}{the initial number of clusters}
-
-\item{datat}{a n by n adjancey matrix}
 }
 \value{
 zout = clustering configuration, a n by 1 vector
@@ -38,5 +38,5 @@ zout = clustering configuration, a n by 1 vector
 Qout = probability matrix, a k by k matrix
 }
 \description{
-Collapsed sampler for MFM-SBM
+CDMFM_new function returns a list with zout (clustering configuration, n by 1 vector), and Qout (probability matrix, k by k)
 }
