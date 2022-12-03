@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Codecov test
-coverage](https://codecov.io/gh/sakulcodes/MFMSBM/branch/master/graph/badge.svg)](https://codecov.io/gh/sakulcodes/MFMSBM)
+coverage](https://codecov.io/gh/sakulcodes/MFMSBM/master/graph/badge.svg)](https://app.codecov.io/gh/sakulcodes/MFMSBM)
 [![R-CMD-check](https://github.com/sakulcodes/MFMSBM/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sakulcodes/MFMSBM/blob/main/.github/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
