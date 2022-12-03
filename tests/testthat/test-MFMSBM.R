@@ -31,8 +31,10 @@ n <- 10
 A <- matrix(0,n,n)
 AAA <- matrix(0,n,n)
 fit1 <- CDMFM_new(data = A, data1 = AAA, niterations = 2, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)
+fit2 <- CDMFM_new(data = A, data1 = AAA, niterations = 3, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)
 
 test_that("getDahl function works", {
   expect_error(getDahl(fit1,100)$zout, "subscript out of bounds")
   expect_error(getDahl(fit1,200)$zout, "subscript out of bounds")
+  expect_equal(getDahl(fit2,1)$zout * 0 , c(0,0,0,0,0,0,0,0,0,0))
 })
