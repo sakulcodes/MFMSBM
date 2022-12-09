@@ -93,9 +93,9 @@ result1 = getDahl(fit1, burn = 50)
 result1[[1]] ##denotes the estimated clustering configuration.
 result1[[2]] ##denotes the estimated Q matrix.
 
-## dolphin data example
+## dolphin data example 
 ## loading the data
-load("yourpathway/dolphindata.RData")
+load("yourpathway/dolphin_data.rda")  #you can find the dolphin_data.rda under the data folder.
 set.seed(3); 
 fit_dol = CDMFM_new(data = A, data1 = AAA, niterations = 300, beta.a = 2, beta.b = 2, GAMMA=1,LAMBDA = 1,initNClusters=ceiling(runif(1,1,10)))
 
