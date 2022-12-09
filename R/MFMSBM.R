@@ -1,3 +1,13 @@
+#################################Documentation for the dolphin data set################################################################################
+
+#'Dolphin Data Set
+#'
+#'A social network of bottlenose dolphins. The dataset contains a list of all of links, where a link represents frequent associations between dolphins
+#'diamonds.
+#'
+#'@source \url{https://networkrepository.com/soc-dolphins.php}
+"dolphin_data"
+
 
 #################################LOGMARGS FUNCTION################################################################################
 #' Function for getting the collapsed sampler for MFM-SBM m(Aj)

@@ -24,6 +24,8 @@ AAA <- matrix(0,n,n)
 test_that("CDMFM_new function works", {
   expect_equal(CDMFM_new(data = A, data1 = AAA, niterations = 1, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)$zout, NULL)
   expect_equal(CDMFM_new(data = A, data1 = AAA, niterations = 1, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)$Qout, NULL)
+  expect_length(CDMFM_new(data = A, data1 = AAA, niterations = 2, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)$Iterates[[1]]$zout, 10)
+  expect_length(CDMFM_new(data = A, data1 = AAA, niterations = 1, beta.a = 1, beta.b = 1, GAMMA=1, LAMBDA = 1, initNClusters = 1)$Iterates[[1]]$zout, 10)
 })
 
 #######################################getDahl_function#######################################
@@ -37,4 +39,6 @@ test_that("getDahl function works", {
   expect_error(getDahl(fit1,100)$zout, "subscript out of bounds")
   expect_error(getDahl(fit1,200)$zout, "subscript out of bounds")
   expect_equal(getDahl(fit2,1)$zout * 0 , c(0,0,0,0,0,0,0,0,0,0))
+  expect_length(getDahl(fit1,1)$zout, 10)
+  expect_length(getDahl(fit2,1)$zout, 10)
 })
